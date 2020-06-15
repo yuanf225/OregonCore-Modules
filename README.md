@@ -1,7 +1,7 @@
 ![logo](https://avatars2.githubusercontent.com/u/14118733?s=400&v=4) Welcome to OregonCore!
 =================================================================================
 
-This repository is dedicated to all the oregoncore modules 
+该存储库专用于所有oregoncore模块
 
 Build Status
 ------------
@@ -11,21 +11,21 @@ Build Status
 | clang         | Linux x64   | master | [![Build Status][1]][7] |
 
 
-How to install a module
+如何安装模块
 ---------------------------
 ```
-1) Simply place the module under the `modules` directory of your OregonCore source. 
-2) Import the SQL manually to the right Database (auth, world or characters) or using the DB updater in the config
-3) Re-run cmake and launch a clean build of Oregoncore.
+1) 只需将模块放在OregonCore源代码的“modules”目录下。 
+2) 将SQL手动导入到正确的数据库(auth, world or characters)，或者在配置中使用DB更新器
+3) 重新创建build文件并编译
 ```
 
-Why does some modules state azerothcore?
+为什么某些模块声明azerothcore？
 ----------------------------------------
-Some of the modules are backports from 3.3.5 some of these modules that are backported are ones that i have worked on or that i created for azerothcore.
+一些模块是从3.3.5开始的反向移植，其中一些被反向移植的模块是我已经开发或为azerothcore创建的模块。
 
-Can i PR to post more modules here?
+我可以在这里发布更多模块吗？
 -----------------------------------
-Yes, anyone if free to post modules simply open a PR and it will be merged.
+是的，任何可以随意发布模块的人只要打开PR，它将被合并。
 
 
 [1]: https://api.travis-ci.org/talamortis/OregonCore-Modules.svg?branch=master
