@@ -203,7 +203,7 @@ public:
         if (pPlayer->IsInCombat())
         {
             pPlayer->CLOSE_GOSSIP_MENU();
-            pCreature->MonsterSay("You are in combat!", LANG_UNIVERSAL, NULL);
+            pCreature->MonsterSay("你在战斗中!", LANG_UNIVERSAL, NULL);
             return false;
         }
         switch (uiAction)
@@ -220,25 +220,25 @@ public:
             if (pPlayer->GetMoney() < gold * 10000)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Gold", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的金钱", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetHonorPoints() < honor)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Honor Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的荣誉点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetArenaPoints() < ap)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Arena Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的竞技场点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->HasItemCount(itemid, itemcount))
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Items", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("您没有足够的物品", pPlayer->GetGUID());
                 return false;
             }
 
@@ -350,33 +350,33 @@ public:
             if (pPlayer->GetMoney() < gold * 10000)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Gold", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的金钱", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetHonorPoints() < honor)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Honor Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的荣誉点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetArenaPoints() < ap)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Arena Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的竞技场点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->HasItemCount(itemid, itemcount))
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Items", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的物品", pPlayer->GetGUID());
                 return false;
             }
 
             if (!pPlayer->HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_HELM))
                 pPlayer->ToggleFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_HELM);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Change Gender.", GOSSIP_SENDER_MAIN, 1501);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Change Skin Color.", GOSSIP_SENDER_MAIN, 1502);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Change Face.", GOSSIP_SENDER_MAIN, 1503);
+            pPlayer->ADD_GOSSIP_ITEM(0, "改变性别", GOSSIP_SENDER_MAIN, 1501);
+            pPlayer->ADD_GOSSIP_ITEM(0, "改变肤色", GOSSIP_SENDER_MAIN, 1502);
+            pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型", GOSSIP_SENDER_MAIN, 1503);
             switch (pPlayer->getRace())
             {
             case RACE_HUMAN:
@@ -389,8 +389,8 @@ public:
             case RACE_BLOODELF:
             case RACE_DRAENEI:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Hair Style.", GOSSIP_SENDER_MAIN, 1504);
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Hair Color.", GOSSIP_SENDER_MAIN, 1505);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变发型", GOSSIP_SENDER_MAIN, 1504);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变头发的颜色", GOSSIP_SENDER_MAIN, 1505);
             }
             break;
             case RACE_TAUREN:
@@ -446,25 +446,25 @@ public:
             if (pPlayer->GetMoney() < gold * 10000)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Gold", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的金钱", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetHonorPoints() < honor)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Honor Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的荣誉点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->GetArenaPoints() < ap)
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Arena Points", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的竞技场点数", pPlayer->GetGUID());
                 return false;
             }
             if (pPlayer->HasItemCount(itemid, itemcount))
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You have not enough Items", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你没有足够的物品", pPlayer->GetGUID());
                 return false;
             }
 

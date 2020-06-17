@@ -14,14 +14,14 @@ public:
 
         void OnLogin(Player* player, bool firstLogin)
         {
-            // Announce to the player that the XP weekend is happeneing.
+            // 向玩家宣布周末双倍经验即将开启。
             if (!Enabled)
                 return;
 
             if (now->tm_wday == 5 /*Friday*/ || now->tm_wday == 6 /*Satureday*/ || now->tm_wday == 0/*Sunday*/)
-                ChatHandler(player->GetSession()).PSendSysMessage("Its the Weekend! Your XP rate has been set to: %u", xpAmount);
+                ChatHandler(player->GetSession()).PSendSysMessage("现在是周末！您的XP率已设置为: %u", xpAmount);
             else
-                ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00XPWeekend |rmodule");
+                ChatHandler(player->GetSession()).SendSysMessage("服务器已开启 |cff4CFF00周末双倍经验 |模块");
         }
 
         void OnGiveXP(Player* p, uint32& amount, Unit* victim) override
