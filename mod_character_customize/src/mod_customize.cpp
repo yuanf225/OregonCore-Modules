@@ -246,90 +246,90 @@ public:
             {
             case CLASS_WARRIOR:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Orc", GOSSIP_SENDER_MAIN, 2002);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Dwarf", GOSSIP_SENDER_MAIN, 2003);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Night Elf", GOSSIP_SENDER_MAIN, 2004);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Unded", GOSSIP_SENDER_MAIN, 2005);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Tauren", GOSSIP_SENDER_MAIN, 2006);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Gnome", GOSSIP_SENDER_MAIN, 2007);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 兽人", GOSSIP_SENDER_MAIN, 2002);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 矮人", GOSSIP_SENDER_MAIN, 2003);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 暗夜精灵", GOSSIP_SENDER_MAIN, 2004);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 亡灵", GOSSIP_SENDER_MAIN, 2005);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 牛头人", GOSSIP_SENDER_MAIN, 2006);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 侏儒", GOSSIP_SENDER_MAIN, 2007);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_PALADIN:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Dwarf", GOSSIP_SENDER_MAIN, 2003);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 矮人", GOSSIP_SENDER_MAIN, 2003);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_HUNTER:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Orc", GOSSIP_SENDER_MAIN, 2002);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Dwarf", GOSSIP_SENDER_MAIN, 2003);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Night Elf", GOSSIP_SENDER_MAIN, 2004);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Tauren", GOSSIP_SENDER_MAIN, 2006);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 兽人", GOSSIP_SENDER_MAIN, 2002);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 矮人", GOSSIP_SENDER_MAIN, 2003);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 暗夜精灵", GOSSIP_SENDER_MAIN, 2004);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 牛头人", GOSSIP_SENDER_MAIN, 2006);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_ROGUE:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Orc", GOSSIP_SENDER_MAIN, 2002);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Dwarf", GOSSIP_SENDER_MAIN, 2003);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Night Elf", GOSSIP_SENDER_MAIN, 2004);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Unded", GOSSIP_SENDER_MAIN, 2005);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Gnome", GOSSIP_SENDER_MAIN, 2007);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 兽人", GOSSIP_SENDER_MAIN, 2002);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 矮人", GOSSIP_SENDER_MAIN, 2003);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 暗夜精灵", GOSSIP_SENDER_MAIN, 2004);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 亡灵", GOSSIP_SENDER_MAIN, 2005);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 侏儒", GOSSIP_SENDER_MAIN, 2007);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
             }
             break;
             case CLASS_PRIEST:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Dwarf", GOSSIP_SENDER_MAIN, 2003);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Night Elf", GOSSIP_SENDER_MAIN, 2004);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Unded", GOSSIP_SENDER_MAIN, 2005);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 矮人", GOSSIP_SENDER_MAIN, 2003);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 暗夜精灵", GOSSIP_SENDER_MAIN, 2004);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 亡灵", GOSSIP_SENDER_MAIN, 2005);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_SHAMAN:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Orc", GOSSIP_SENDER_MAIN, 2002);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Tauren", GOSSIP_SENDER_MAIN, 2006);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 兽人", GOSSIP_SENDER_MAIN, 2002);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 牛头人", GOSSIP_SENDER_MAIN, 2006);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_MAGE:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Unded", GOSSIP_SENDER_MAIN, 2005);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Gnome", GOSSIP_SENDER_MAIN, 2007);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Troll", GOSSIP_SENDER_MAIN, 2008);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Draenei", GOSSIP_SENDER_MAIN, 2010);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 亡灵", GOSSIP_SENDER_MAIN, 2005);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 侏儒", GOSSIP_SENDER_MAIN, 2007);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 巨魔", GOSSIP_SENDER_MAIN, 2008);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 德莱尼", GOSSIP_SENDER_MAIN, 2010);
             }
             break;
             case CLASS_WARLOCK:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Human", GOSSIP_SENDER_MAIN, 2001);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Orc", GOSSIP_SENDER_MAIN, 2002);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Unded", GOSSIP_SENDER_MAIN, 2005);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Gnome", GOSSIP_SENDER_MAIN, 2007);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Blood Elf", GOSSIP_SENDER_MAIN, 2009);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 人类", GOSSIP_SENDER_MAIN, 2001);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 兽人", GOSSIP_SENDER_MAIN, 2002);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 亡灵", GOSSIP_SENDER_MAIN, 2005);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 侏儒", GOSSIP_SENDER_MAIN, 2007);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 血精灵", GOSSIP_SENDER_MAIN, 2009);
             }
             break;
             case CLASS_DRUID:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Night Elf", GOSSIP_SENDER_MAIN, 2004);
-                pPlayer->ADD_GOSSIP_ITEM(0, "To Tauren", GOSSIP_SENDER_MAIN, 2006);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 暗夜精灵", GOSSIP_SENDER_MAIN, 2004);
+                pPlayer->ADD_GOSSIP_ITEM(0, "到 牛头人", GOSSIP_SENDER_MAIN, 2006);
             }
             break;
             }
@@ -395,8 +395,8 @@ public:
             break;
             case RACE_TAUREN:
             {
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Horn Style.", GOSSIP_SENDER_MAIN, 1504);
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Horn Color.", GOSSIP_SENDER_MAIN, 1505);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变犄角形状。", GOSSIP_SENDER_MAIN, 1504);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变犄角颜色。", GOSSIP_SENDER_MAIN, 1505);
             }
             break;
             }
@@ -406,28 +406,28 @@ public:
             case RACE_HUMAN:
             case RACE_ORC:
             case RACE_DWARF:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Piercings.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变刺环。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_NIGHTELF:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Markings.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变面纹。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_UNDEAD_PLAYER:
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Features.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变特征。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_TAUREN:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Hair.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变头发。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_GNOME:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Earrings.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变耳环。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_TROLL:
-                pPlayer->ADD_GOSSIP_ITEM(0, "Change Tusks.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->ADD_GOSSIP_ITEM(0, "改变獠牙。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_BLOODELF:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Earrings.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变耳环。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             case RACE_DRAENEI:
-                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "Change Facial Hair.", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "Change Horn Style.", GOSSIP_SENDER_MAIN, 1506);
+                pPlayer->getGender() == GENDER_MALE ? pPlayer->ADD_GOSSIP_ITEM(0, "改变脸型发型。", GOSSIP_SENDER_MAIN, 1506) : pPlayer->ADD_GOSSIP_ITEM(0, "改变犄角形状。", GOSSIP_SENDER_MAIN, 1506);
                 break;
             }
 
@@ -510,9 +510,9 @@ public:
             pPlayer->SetNativeDisplayId(new_displayId);
 
             if (pPlayer->getGender() == GENDER_FEMALE)
-                pCreature->MonsterWhisper("You FEMALE now!!!", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("您已改变为女性！", pPlayer->GetGUID());
             else
-                pCreature->MonsterWhisper("You MALE now!!!", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("您已改变为男性！", pPlayer->GetGUID());
             pPlayer->CLOSE_GOSSIP_MENU();
         }
         break;
@@ -525,9 +525,9 @@ public:
             pPlayer->ModifyArenaPoints((-1)*costfields[2].GetUInt32());
             pPlayer->DestroyItemCount(costfields[3].GetUInt32(), costfields[4].GetUInt32(), true);
 
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1507);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1508);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个肤色……", GOSSIP_SENDER_MAIN, 1507);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个肤色……", GOSSIP_SENDER_MAIN, 1508);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -541,9 +541,9 @@ public:
             pPlayer->ModifyArenaPoints((-1)*costfields[2].GetUInt32());
             pPlayer->DestroyItemCount(costfields[3].GetUInt32(), costfields[4].GetUInt32(), true);
 
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Face...", GOSSIP_SENDER_MAIN, 1509);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Face...", GOSSIP_SENDER_MAIN, 1510);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个 脸型...", GOSSIP_SENDER_MAIN, 1509);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个 脸型...", GOSSIP_SENDER_MAIN, 1510);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -557,9 +557,9 @@ public:
             pPlayer->ModifyArenaPoints((-1)*costfields[2].GetUInt32());
             pPlayer->DestroyItemCount(costfields[3].GetUInt32(), costfields[4].GetUInt32(), true);
 
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Style...", GOSSIP_SENDER_MAIN, 1511);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Style...", GOSSIP_SENDER_MAIN, 1512);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发型...", GOSSIP_SENDER_MAIN, 1511);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发型...", GOSSIP_SENDER_MAIN, 1512);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -573,9 +573,9 @@ public:
             pPlayer->ModifyArenaPoints((-1)*costfields[2].GetUInt32());
             pPlayer->DestroyItemCount(costfields[3].GetUInt32(), costfields[4].GetUInt32(), true);
 
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Color...", GOSSIP_SENDER_MAIN, 1513);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Color...", GOSSIP_SENDER_MAIN, 1514);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发色...", GOSSIP_SENDER_MAIN, 1513);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发色...", GOSSIP_SENDER_MAIN, 1514);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -589,9 +589,9 @@ public:
             pPlayer->ModifyArenaPoints((-1)*costfields[2].GetUInt32());
             pPlayer->DestroyItemCount(costfields[3].GetUInt32(), costfields[4].GetUInt32(), true);
 
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Style...", GOSSIP_SENDER_MAIN, 1515);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Style...", GOSSIP_SENDER_MAIN, 1516);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个饰品...", GOSSIP_SENDER_MAIN, 1515);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个饰品...", GOSSIP_SENDER_MAIN, 1516);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -599,9 +599,9 @@ public:
         case 1507: // Next skin
         {
             SelectSkin(pPlayer, 1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1507);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1508);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个肤色……", GOSSIP_SENDER_MAIN, 1507);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个肤色……", GOSSIP_SENDER_MAIN, 1508);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -609,9 +609,9 @@ public:
         case 1508: // Prev skin
         {
             SelectSkin(pPlayer, -1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1507);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1508);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个肤色……", GOSSIP_SENDER_MAIN, 1507);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个肤色……", GOSSIP_SENDER_MAIN, 1508);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -619,9 +619,9 @@ public:
         case 1509: // Next face
         {
             SelectFace(pPlayer, 1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1509);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1510);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个脸型……", GOSSIP_SENDER_MAIN, 1509);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个脸型……", GOSSIP_SENDER_MAIN, 1510);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -629,9 +629,9 @@ public:
         case 1510: // Prev face
         {
             SelectFace(pPlayer, -1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1509);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1510);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个脸型……", GOSSIP_SENDER_MAIN, 1509);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个脸型……", GOSSIP_SENDER_MAIN, 1510);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -639,9 +639,9 @@ public:
         case 1511: // Next hair style
         {
             SelectHairStyle(pPlayer, 1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1511);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1512);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发型……", GOSSIP_SENDER_MAIN, 1511);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发型……", GOSSIP_SENDER_MAIN, 1512);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -649,9 +649,9 @@ public:
         case 1512: // Prev hair style
         {
             SelectHairStyle(pPlayer, -1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1511);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1512);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发型……", GOSSIP_SENDER_MAIN, 1511);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发型……", GOSSIP_SENDER_MAIN, 1512);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -659,9 +659,9 @@ public:
         case 1513: // Next hair color
         {
             SelectHairColor(pPlayer, 1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1513);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1514);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发色……", GOSSIP_SENDER_MAIN, 1513);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发色……", GOSSIP_SENDER_MAIN, 1514);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -669,9 +669,9 @@ public:
         case 1514: // Prev hair color
         {
             SelectHairColor(pPlayer, -1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1513);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1514);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发色……", GOSSIP_SENDER_MAIN, 1513);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发色……", GOSSIP_SENDER_MAIN, 1514);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -679,9 +679,9 @@ public:
         case 1515: // Next style
         {
             SelectFacialFeature(pPlayer, 1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1515);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1516);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发型……", GOSSIP_SENDER_MAIN, 1515);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发型……", GOSSIP_SENDER_MAIN, 1516);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
@@ -689,16 +689,16 @@ public:
         case 1516: // Prev style
         {
             SelectFacialFeature(pPlayer, -1);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Next Skin Color...", GOSSIP_SENDER_MAIN, 1515);
-            pPlayer->ADD_GOSSIP_ITEM(0, "Prev Skin Color...", GOSSIP_SENDER_MAIN, 1516);
-            pPlayer->ADD_GOSSIP_ITEM(0, "I Like It...", GOSSIP_SENDER_MAIN, 1999);
+            pPlayer->ADD_GOSSIP_ITEM(0, "下一个发型……", GOSSIP_SENDER_MAIN, 1515);
+            pPlayer->ADD_GOSSIP_ITEM(0, "上一个发型……", GOSSIP_SENDER_MAIN, 1516);
+            pPlayer->ADD_GOSSIP_ITEM(0, "我喜欢它...", GOSSIP_SENDER_MAIN, 1999);
 
             pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         }
         break;
         case 1999:
         {
-            pCreature->MonsterWhisper("Complite!!!", pPlayer->GetGUID());
+            pCreature->MonsterWhisper("完成", pPlayer->GetGUID());
             pPlayer->CLOSE_GOSSIP_MENU();
         }
         break;

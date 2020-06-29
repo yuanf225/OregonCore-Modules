@@ -60,8 +60,8 @@ std::string world_chat_GMIcon = "|TINTERFACE/CHATFRAME/UI-CHATICON-BLIZZ:15:15:0
 /* COLORED TEXT FOR CURRENT FACTION || NOT FOR GMS */
 std::string world_chat_TeamIcon[2] =
 {
-    "|cff3399FFAlliance|r",
-    "|cffCC0000Horde|r"
+    "|cff3399FF联盟|r",
+    "|cffCC0000部落|r"
 };
 
 
@@ -85,7 +85,7 @@ public:
         Player* _player = pChat->GetSession()->GetPlayer();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(_player).PSendSysMessage("[WC] %sWorld Chat System is disabled.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(_player).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -95,12 +95,12 @@ public:
         uint64 guid = _player->GetGUID();
 
 		if (!_player->CanSpeak()){
-			ChatHandler(_player).PSendSysMessage("[WC] %sYou can't use World Chat while muted!|r", WORLD_CHAT_RED.c_str());
+			ChatHandler(_player).PSendSysMessage("[WC] %s禁用时无法使用世界聊天|r", WORLD_CHAT_RED.c_str());
 			return true;
 		}
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(_player).PSendSysMessage("[WC] %sWorld Chat is disabled. (.chat)|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(_player).PSendSysMessage("[WC] %s世界聊天被禁用。 (.chat)|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -168,7 +168,7 @@ public:
         Player* player = pChat->GetSession()->GetPlayer();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player).PSendSysMessage("[WC] %sWorld Chat System is disabled.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -178,7 +178,7 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is disabled. (.chat)|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天被禁用。 (.chat)|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -221,7 +221,7 @@ public:
         Player* player = pChat->GetSession()->GetPlayer();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player).PSendSysMessage("[WC] %sWorld Chat System is disabled.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -231,7 +231,7 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is disabled. (.chat)|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天被禁用。(.chat)|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -274,18 +274,18 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat System is disabled.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         if (WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is already visible.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天已经可见。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         WorldChat[guid].chat = 1;
 
-        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is now visible.|r", WORLD_CHAT_GREEN.c_str());
+        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天现在是可见的。|r", WORLD_CHAT_GREEN.c_str());
 
         return true;
     };
@@ -296,18 +296,18 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat System is disabled.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is already hidden.|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天已经隐藏。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         WorldChat[guid].chat = 0;
 
-        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %sWorld Chat is now hidden.|r", WORLD_CHAT_GREEN.c_str());
+        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天现在是隐藏的。|r", WORLD_CHAT_GREEN.c_str());
 
         return true;
     };
@@ -345,7 +345,7 @@ public:
         // Announce Module
         if (sWorld.GetModuleBoolConfig("World_Chat.Enable", true) && sWorld.GetModuleBoolConfig("World_Chat.Announce", true))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00WorldChat |rmodule");
+            ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行 |cff4CFF00世界聊天 |模块");
         }
     }
 };

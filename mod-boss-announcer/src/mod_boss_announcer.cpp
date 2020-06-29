@@ -22,7 +22,7 @@ public:
         {
             if (BossAnnounceToPlayerOnLogin)
             {
-                ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00BossAnnouncer |rmodule.");
+                ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行 |cff4CFF00Boss公告 |模块。");
             }
         }
     }
@@ -35,7 +35,7 @@ public:
 
             if (boss->GetMap()->IsRaid() && boss->getLevel() > 70 && BossInfo->type_flags & CREATURE_TYPE_FLAG_BOSS_MOB)
             {
-                //lets get the info we want
+                //让我们得到我们想要的信息
                 Map* map = player->GetMap();
                 std::string p_name;
                 std::string g_name;
@@ -103,7 +103,7 @@ public:
 						g_name = pGuild->GetName();
                 }
 
-				stream << "|CFF" << tag_colour << "|r|cff" << plr_colour << " " << p_name << "|r's Guild |cff" << guild_colour << "" << g_name << "|r has slain |CFF" << boss_colour << "[" << boss_name << "]|r with remaining |cff" << alive_text << "" << Alive_players << " /" << Max_Allowed_Players << "|r players alive on " << IsHeroicMode << " mode |r";
+				stream << "|CFF" << tag_colour << "|r|cff" << plr_colour << " " << p_name << "|r's Guild |cff" << guild_colour << "" << g_name << "|r 已经被杀 |CFF" << boss_colour << "[" << boss_name << "]|r 剩下的 |cff" << alive_text << "" << Alive_players << " /" << Max_Allowed_Players << "|r 玩家还活着 " << IsHeroicMode << " mode |r";
                 sWorld.SendServerMessage(SERVER_MSG_STRING, stream.str().c_str());
 
 

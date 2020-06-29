@@ -14,7 +14,7 @@ public:
 
     void OnLogin(Player* p, bool firstLogin)
     {
-        ChatHandler(p->GetSession()).PSendSysMessage("This server is running the |cff4CFF00Chat Censure |rmodule.");
+        ChatHandler(p->GetSession()).PSendSysMessage("该服务器正在运行 |cff4CFF00反广告系统 |模块。");
     }
 
     void OnChat(Player* player, uint32 /*type*/, uint32 lang, std::string& msg)
@@ -58,8 +58,8 @@ public:
         for (int i = 0; i < chat.size(); ++i)
             if (lower.find(chat[i]) != std::string::npos)
             {
-                msg = "OregonCore is Great!";
-                ChatHandler(player->GetSession()).PSendSysMessage("Links/Advertisements are not allowed!");
+                msg = "OregonCore很棒！";
+                ChatHandler(player->GetSession()).PSendSysMessage("链接/广告是不允许的！");
                 return;
             }
     }
@@ -72,13 +72,13 @@ public:
 
     void OnLoadCustomDatabaseTable()
     {
-        sLog.outString("Loading Chat Censure...");
+        sLog.outString("正在加载聊天提示...");
 
         QueryResult_AutoPtr result = CharacterDatabase.PQuery("SELECT `id`,`text` FROM chat_censure");
 
         if (!result)
         {
-            sLog.outErrorDb(">>  Loaded 0 Chat Censures. DB table `Chat_Censure` is empty!");
+            sLog.outErrorDb(">>  已加载0个聊天提示。 数据库表“ Chat_Censure”为空！");
             sLog.outString();
             return;
         }
@@ -96,7 +96,7 @@ public:
 
         } while (result->NextRow());
 
-        sLog.outString(">> Loaded %u chat_censure in %u ms", count, GetMSTimeDiffToNow(oldMSTime));
+        sLog.outString(">> 已在 %u ms中加载 %u chat_censure", count, GetMSTimeDiffToNow(oldMSTime));
         sLog.outString("");
     }
 };
@@ -111,8 +111,8 @@ public:
         static std::vector<ChatCommand> ChatCensureCommandTable =
         {
             { "Reload", SEC_ADMINISTRATOR, true, &HandleReloadCommand, "Realod the chat Censure table" },
-            { "Add",    SEC_ADMINISTRATOR, false, &HandleAddCommand,    "Ban a word. Please use quotation marks when adding."},
-            { "Delete", SEC_ADMINISTRATOR, false, &HandleDeleteCommand, "Delete a banned word. Please use quotation marks when deleting"}
+            { "Add",    SEC_ADMINISTRATOR, false, &HandleAddCommand,    "禁止一句话。 添加时请使用引号。"},
+            { "Delete", SEC_ADMINISTRATOR, false, &HandleDeleteCommand, "删除被禁止的单词。 删除时请使用引号"}
         };
 
         static std::vector<ChatCommand> commandTable =
@@ -145,7 +145,7 @@ public:
 
         } while (result->NextRow());
 
-        ChatHandler(me->GetSession()).PSendSysMessage("Reloaded %u chat censure in %u ms", count, GetMSTimeDiffToNow(oldMSTime));
+        ChatHandler(me->GetSession()).PSendSysMessage("已在 %u ms中重新加载 %u chat_censure", count, GetMSTimeDiffToNow(oldMSTime));
         return true;
 
     }
@@ -167,17 +167,17 @@ public:
 
         std::string text = textExtracted;
 
-        //lets check the Database to see if arguement already exist
+        //让我们检查一下数据库，看看是否有重复的条目
         QueryResult_AutoPtr result = CharacterDatabase.PQuery("SELECT `text` FROM `chat_censure` WHERE `text` = '%s'", text.c_str());
 
         if (result)
         {
-            ChatHandler(me->GetSession()).PSendSysMessage("Duplicate text entry for text: |cff4CFF00 %s|r", text.c_str());
+            ChatHandler(me->GetSession()).PSendSysMessage("重复输入文本: |cff4CFF00 %s|r", text.c_str());
         }
         else
         {
             CharacterDatabase.PQuery("INSERT INTO `chat_censure` (`text`) VALUES ('%s')", text.c_str());
-            ChatHandler(me->GetSession()).PSendSysMessage("Added the text: |cff4CFF00 %s|r to chat censure", text.c_str());
+            ChatHandler(me->GetSession()).PSendSysMessage("添加文字: |cff4CFF00 %s|r 到反广告系统", text.c_str());
         }
         return true;
     }
@@ -204,12 +204,12 @@ public:
 
         if (!result)
         {
-            ChatHandler(me->GetSession()).PSendSysMessage("Could not find text: |cff4CFF00 %s|r in the Database", text.c_str());
+            ChatHandler(me->GetSession()).PSendSysMessage("在数据库中找不到文本：|cff4CFF00 %s|r", text.c_str());
         }
         else
         {
             CharacterDatabase.PQuery("DELETE FROM `chat_censure` WHERE `text` = '%s'", text.c_str());
-            ChatHandler(me->GetSession()).PSendSysMessage("Deleted Text |cff4CFF00 %s|r please reload the table", text.c_str());
+            ChatHandler(me->GetSession()).PSendSysMessage("已删除文本 |cff4CFF00 %s|r 请重新加载表", text.c_str());
         }
 
         return true;
