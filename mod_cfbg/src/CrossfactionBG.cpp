@@ -115,7 +115,7 @@ void CFBG::FakeDisplayID(Player* player)
 
     if (!info)
     {
-        sLog.outError("Player %u has incorrect race/class pair. Can't init display ids.", player->GetGUIDLow());
+        sLog.outError("玩家％u具有不正确的种族/职业对。 无法初始化显示ID。", player->GetGUIDLow());
         return;
     }
 
@@ -134,7 +134,7 @@ void CFBG::FakeDisplayID(Player* player)
         player->SetNativeDisplayId(info->displayId_m);
         break;
     default:
-        sLog.outError("Invalid gender %u for player", gender);
+        sLog.outError("玩家%u的性别无效", gender);
         return;
     }
 }
