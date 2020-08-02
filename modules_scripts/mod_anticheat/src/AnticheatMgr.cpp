@@ -44,7 +44,7 @@ void AnticheatMgr::JumpHackDetection(Player* player, MovementInfo /* movementInf
 
 		player->TeleportTo(player->GetMapId(), x, y, ground_Z, player->GetOrientation());
 		BuildReport(player, JUMP_HACK_REPORT);
-		sLog.outString("AnticheatMgr:: Jump-Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+		sLog.outString("AnticheatMgr:: 检测到玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 	}
 }
 
@@ -70,12 +70,12 @@ void AnticheatMgr::WalkOnWaterHackDetection(Player* player, MovementInfo  moveme
 	if (sWorld.GetModuleBoolConfig("Anticheat.KickPlayerWaterWalkHack", false))
 	{
 		if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false))
-			sLog.outString("AnticheatMgr:: Walk on Water - Hack detected and counteracted by kicking player %s (%u)", player->GetName(), player->GetGUIDLow());
+			sLog.outString("AnticheatMgr:: 在水上行走-被踢玩家 %s (%u )后发现并抵消了骇客", player->GetName(), player->GetGUIDLow());
 
 		player->GetSession()->KickPlayer();
 	}
 	else if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false)) {
-		sLog.outString("AnticheatMgr:: Walk on Water - Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+		sLog.outString("AnticheatMgr:: 在水上行走-侦测到的玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 	}
 
 	player->SetWaterWalking(false, true);
@@ -99,11 +99,11 @@ void AnticheatMgr::FlyHackDetection(Player* player, MovementInfo  movementInfo)
 	if (sWorld.GetModuleBoolConfig("Anticheat.KickPlayerFlyHack", false))
 	{
 		if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false))
-			sLog.outString("AnticheatMgr:: Fly-Hack detected and counteracted by kicking player %s (%u)", player->GetName(), player->GetGUIDLow());
+			sLog.outString("AnticheatMgr:: 通过被踢玩家 %s (%u) 检测和反击飞击", player->GetName(), player->GetGUIDLow());
 
 		player->GetSession()->KickPlayer();
 	} else if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false)) {
-		sLog.outString( "AnticheatMgr:: Fly-Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+		sLog.outString( "AnticheatMgr:: Fly-Hack 检测到玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 	}
 
 	player->SetCanFly(false, true);
@@ -137,7 +137,7 @@ void AnticheatMgr::TeleportPlaneHackDetection(Player* player, MovementInfo movem
 	if (z_diff > 1.0f)
 	{
 		if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false))
-			sLog.outString("AnticheatMgr:: Teleport To Plane - Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+			sLog.outString("AnticheatMgr:: 传送至飞机-检测到攻击玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 
 		// Kill the player
 		player->EnvironmentalDamage(DAMAGE_FALL_TO_VOID, player->GetHealth());
@@ -202,7 +202,7 @@ void AnticheatMgr::ClimbHackDetection(Player *player, MovementInfo movementInfo,
 	if (angle > CLIMB_ANGLE)
 	{
 		if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false))
-			sLog.outString("AnticheatMgr:: Climb-Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+			sLog.outString("AnticheatMgr:: Climb-Hack 检测到玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 
 		BuildReport(player, CLIMB_HACK_REPORT);
 	}
@@ -251,7 +251,7 @@ void AnticheatMgr::SpeedHackDetection(Player* player, MovementInfo movementInfo)
 	if (clientSpeedRate > speedRate)
 	{
 		if (sWorld.GetModuleBoolConfig("Anticheat.WriteLog", false))
-			sLog.outString("AnticheatMgr:: Speed-Hack detected player %s (%u)", player->GetName(), player->GetGUIDLow());
+			sLog.outString("AnticheatMgr:: Speed-Hack 检测到玩家 %s (%u)", player->GetName(), player->GetGUIDLow());
 
 		if (sWorld.GetModuleBoolConfig("Anticheat.KickPlayer.SpeedHack", true))
 			player->GetSession()->KickPlayer();
@@ -384,13 +384,13 @@ void AnticheatMgr::AnticheatGlobalCommand(ChatHandler* handler)
 	QueryResult_AutoPtr resultDB = CharacterDatabase.Query("SELECT guid,average,total_reports FROM players_reports_status WHERE total_reports != 0 ORDER BY average ASC LIMIT 3;");
 	if (!resultDB)
 	{
-		handler->PSendSysMessage("No players found.");
+		handler->PSendSysMessage("没有发现玩家。");
 		return;
 	}
 	else
 	{
 		handler->SendSysMessage("=============================");
-		handler->PSendSysMessage("Players with the lowest averages:");
+		handler->PSendSysMessage("平均得分最低的玩家:");
 		do
 		{
 			Field *fieldsDB = resultDB->Fetch();
@@ -400,7 +400,7 @@ void AnticheatMgr::AnticheatGlobalCommand(ChatHandler* handler)
 			uint32 total_reports = fieldsDB[2].GetUInt32();
 
 			if (Player* player = sObjectMgr.GetPlayer(guid))
-				handler->PSendSysMessage("Player: %s Average: %f Total Reports: %u", player->GetName(), average, total_reports);
+				handler->PSendSysMessage("玩家: %s 平均值: %f 汇总报表: %u", player->GetName(), average, total_reports);
 
 		} while (resultDB->NextRow());
 	}
@@ -410,13 +410,13 @@ void AnticheatMgr::AnticheatGlobalCommand(ChatHandler* handler)
 	// this should never happen
 	if (!resultDB)
 	{
-		handler->PSendSysMessage("No players found.");
+		handler->PSendSysMessage("没有发现玩家。");
 		return;
 	}
 	else
 	{
 		handler->PSendSysMessage("=============================");
-		handler->PSendSysMessage("Players with the more reports:");
+		handler->PSendSysMessage("有更多报告的玩家：");
 		do
 		{
 			Field *fieldsDB = resultDB->Fetch();
@@ -426,7 +426,7 @@ void AnticheatMgr::AnticheatGlobalCommand(ChatHandler* handler)
 			uint32 total_reports = fieldsDB[2].GetUInt32();
 
 			if (Player* player = sObjectMgr.GetPlayer(guid))
-				handler->PSendSysMessage("Player: %s Total Reports: %u Average: %f", player->GetName(), total_reports, average);
+				handler->PSendSysMessage("玩家: %s 汇总报表: %u 平均值: %f", player->GetName(), total_reports, average);
 
 		} while (resultDB->NextRow());
 	}
