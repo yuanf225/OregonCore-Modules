@@ -43,12 +43,12 @@ void GossipObjects(Player *player, Creature *m_creature)
         char msg[100];
           int time2 = GetLastThemeTime() + AVAILABLEAFTER - time (NULL);
           if (time2 < 60)
-          sprintf(msg, "Next change possible in less than minute.");
+          sprintf(msg, "下一个改变可能在不到一分钟。");
         else
-          sprintf(msg, "Next change possible in %u minute/s.", time2 / 60);          
+          sprintf(msg, "下一个更改可能在%u分钟/秒内进行。", time2 / 60);          
           player->ADD_GOSSIP_ITEM(0, msg, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 2);
     }
-    player->ADD_GOSSIP_ITEM(0, "Good bye", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);
+    player->ADD_GOSSIP_ITEM(0, "再见", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);
     player->SEND_GOSSIP_MENU(1,m_creature->GetGUID());
 }
 
@@ -73,7 +73,7 @@ class Theme_NPC : public CreatureScript
                 result = WorldDatabase.PQuery("SELECT `x`, `y`, `z`, `o`, `entry` FROM `gurubashi_spawns` WHERE `theme` = %u", action - OFFSET_THEME);
                 if (result)
                 {
-                    m_creature->MonsterSay("Spawning gameobjects..", LANG_UNIVERSAL, player->GetGUID());
+                    m_creature->MonsterSay("生成 gameobjects..", LANG_UNIVERSAL, player->GetGUID());
                     do
                     {
                         Field *fields = result->Fetch();
@@ -83,7 +83,7 @@ class Theme_NPC : public CreatureScript
                 }
                 else
                 {
-                    m_creature->MonsterSay("No gameobjects found.", LANG_UNIVERSAL, player->GetGUID());
+                    m_creature->MonsterSay("没有发现 gameobjects。", LANG_UNIVERSAL, player->GetGUID());
                 }
                 player->PlayerTalkClass->CloseGossip();
             }

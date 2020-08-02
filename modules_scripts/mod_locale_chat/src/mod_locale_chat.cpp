@@ -25,8 +25,8 @@ std::string locale_chat_ClassColor[11] =
 
 std::string locale_chat_TeamIcon[2] =
 {
-    "|cff3399FFAlliance|r",
-    "|cffCC0000Horde|r"
+    "|cff3399FF联盟|r",
+    "|cffCC0000部落|r"
 };
 
 std::string locale[9] =
@@ -69,7 +69,7 @@ public:
 
         if (!Playerdata->enable)
         {
-            ChatHandler(player).PSendSysMessage("Localized chat is currently disabled. Please enable it");
+            ChatHandler(player).PSendSysMessage("当前已禁用本地化聊天。请启用它");
             return true;
         }
 
@@ -122,7 +122,7 @@ public:
 
         data->enable = true;
 
-        ChatHandler(player).PSendSysMessage("You have enabled localized chat");
+        ChatHandler(player).PSendSysMessage("您已经启用了本地化聊天");
 
         return true;
     }
@@ -135,7 +135,7 @@ public:
 
         data->enable = false;
 
-        ChatHandler(player).PSendSysMessage("You have disabled localized chat");
+        ChatHandler(player).PSendSysMessage("您已经禁用了本地化聊天");
 
         return true;
     }

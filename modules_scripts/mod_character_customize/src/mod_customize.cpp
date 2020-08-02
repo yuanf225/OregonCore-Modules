@@ -190,7 +190,7 @@ public:
             player->SetNativeDisplayId(info->displayId_m);
             break;
         default:
-            sLog.outError("Invalid gender %u for player", gender);
+            sLog.outError("玩家的性别 %u无效", gender);
             return;
         }
 

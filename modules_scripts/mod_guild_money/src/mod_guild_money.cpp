@@ -34,7 +34,7 @@ public:
             guild->LogBankEvent(GUILD_BANK_LOG_DEPOSIT_MONEY, uint8(0), player->GetGUIDLow(), money);
 
             if (sWorld.GetModuleBoolConfig("Guild.Reward.Notify.Player", true))
-                ChatHandler(player).PSendSysMessage("You Deposit %u to %s", money, guild->GetName().c_str());
+                ChatHandler(player).PSendSysMessage("你存入 %u 到 %s", money, guild->GetName().c_str());
         }
     }
 };
