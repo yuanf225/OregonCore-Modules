@@ -82,39 +82,39 @@ end
 local INVENTORY_SLOT_BAG_0        = 255
 
 local SlotNames = {
-    [EQUIPMENT_SLOT_HEAD      ] = {"Head",         nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_SHOULDERS ] = {"Shoulders",    nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_BODY      ] = {"Shirt",        nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_CHEST     ] = {"Chest",        nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_WAIST     ] = {"Waist",        nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_LEGS      ] = {"Legs",         nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_FEET      ] = {"Feet",         nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_WRISTS    ] = {"Wrists",       nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_HANDS     ] = {"Hands",        nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_BACK      ] = {"Back",         nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_MAINHAND  ] = {"Main hand",    nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_OFFHAND   ] = {"Off hand",     nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_RANGED    ] = {"Ranged",       nil, nil, nil, nil, nil, nil, nil, nil},
-    [EQUIPMENT_SLOT_TABARD    ] = {"Tabard",       nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_HEAD      ] = {"头部",         nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_SHOULDERS ] = {"肩部",    nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_BODY      ] = {"衬衣",        nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_CHEST     ] = {"胸部",        nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_WAIST     ] = {"腰部",        nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_LEGS      ] = {"腿部",         nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_FEET      ] = {"脚部",         nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_WRISTS    ] = {"护腕",       nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_HANDS     ] = {"手",        nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_BACK      ] = {"披风",         nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_MAINHAND  ] = {"主手",    nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_OFFHAND   ] = {"副手",     nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_RANGED    ] = {"远程",       nil, nil, nil, nil, nil, nil, nil, nil},
+    [EQUIPMENT_SLOT_TABARD    ] = {"战袍",       nil, nil, nil, nil, nil, nil, nil, nil},
 }
 local Locales = {
-    {"Update menu", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Remove all transmogrifications", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Remove transmogrifications from all equipped items?", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Using this item for transmogrify will bind it to you and make it non-refundable and non-tradeable.\nDo you wish to continue?", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Remove transmogrification from %s?", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Back..", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Remove transmogrification", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Transmogrifications removed from equipped items", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"You have no transmogrified items equipped", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"%s transmogrification removed", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"No transmogrification on %s slot", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"%s transmogrified", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Selected items are not suitable", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Selected item does not exist", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Equipment slot is empty", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"You don't have enough %ss", nil, nil, nil, nil, nil, nil, nil, nil},
-    {"Not enough money", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"刷新", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"移除所有幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"移除所有装备的幻化？", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"使用此装备幻化会将其绑定，并使其不可退回和不可交易。你想继续吗?", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"从%s移除幻化?", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"返回..", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"移除幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"从装备物品中移除幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"你没有可幻化的装备物品", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"已移除%s幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"%s位置上没有幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"%s已幻化", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"所选装备不适合", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"所选装备不存在", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"该部位还没有装备", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"你没有足够的%ss", nil, nil, nil, nil, nil, nil, nil, nil},
+    {"钱不够", nil, nil, nil, nil, nil, nil, nil, nil},
 }
 local function LocText(id, p) -- "%s":format("test")
     if Locales[id] then
@@ -123,7 +123,7 @@ local function LocText(id, p) -- "%s":format("test")
             return s
         end
     end
-    return "Text not found: "..(id or 0)
+    return "文本没有找到:"..(id or 0)
 end
 --[[
 typedef UNORDERED_MAP<uint32, uint32> transmogData
@@ -501,7 +501,7 @@ COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB;
 ]])
 
-print("Deleting non-existing transmogrification entries...")
+print("删除不存在的幻化项...")
 CharDBQuery("DELETE FROM custom_transmogrification WHERE NOT EXISTS (SELECT 1 FROM item_instance WHERE item_instance.guid = custom_transmogrification.GUID)")
 
 RegisterPlayerEvent(3, OnLogin)
