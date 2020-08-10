@@ -19,12 +19,12 @@ public:
 
         if (player->GetTeam() == ALLIANCE)
         {
-            ss << "|cff3DAEFF[ Login Announcer ]|cffFFD800 : Player|cff4CFF00 " << player->GetName() << " |cffFFD800Is Online. This Player is|cff0026FF Alliance";
+            ss << "|cff3DAEFF[ 登录公告 ]|cffFFD800 : 玩家|cff4CFF00 " << player->GetName() << " |cffFFD800已上线，TA来自|cff0026FF 联盟";
             sWorld.SendServerMessage(SERVER_MSG_STRING, ss.str().c_str());
         }
         else
         {
-            ss << "|cff3DAEFF[ Login Announcer ]|cffFFD800 : Player|cff4CFF00 " << player->GetName() << " |cffFFD800Is Online. This Player is|cffFF0000 Horde";
+            ss << "|cff3DAEFF[ 登录公告 ]|cffFFD800 : 玩家|cff4CFF00 " << player->GetName() << " |cffFFD800已上线，TA来自|cffFF0000 部落";
             sWorld.SendServerMessage(SERVER_MSG_STRING, ss.str().c_str());
         }
     }
