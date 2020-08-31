@@ -24,7 +24,7 @@ local function OnLogin(event, player)
 
 	local day = os.date("*t").wday
     if day == 6 or day == 7 or day == 1 then
-		player:SendBroadcastMessage("|cffff0000[Announcement]|r It's the Weekend! Double XP is |cFFADFF2FEnabled|r! ")
+		player:SendBroadcastMessage("|cffff0000[公告]|r 今天是周末!XP是两倍 |cFFADFF2F开启|r! ")
 	end
 		
 end
