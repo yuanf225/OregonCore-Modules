@@ -22,7 +22,7 @@ public:
         {
             if (BossAnnounceToPlayerOnLogin)
             {
-                ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行 |cff4CFF00Boss公告 模块。");
+                ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行|cff4CFF00Boss公告|模块。");
             }
         }
     }
@@ -60,9 +60,9 @@ public:
 				Max_Allowed_Players = pInsance->maxPlayers;
 
                 if (player->GetMap()->IsHeroic())
-                    IsHeroicMode = "|cffff0000Heroic|r";
+                    IsHeroicMode = "|cffff0000英雄|r";
                 else
-                    IsHeroicMode = "|cff00ff00Normal|r";
+                    IsHeroicMode = "|cff00ff00普通|r";
 
                 std::ostringstream stream;
 
@@ -91,13 +91,13 @@ public:
                         {
                             if (itr->GetSource()->GetGroup()->IsLeader(itr->GetSource()->GetGUID()))
                                 if (!pGuild)
-                                    g_name = "< No Guild >";
+                                    g_name = "< 没有公会 >";
                                 else
 									
                                     g_name = pGuild->GetName();
                         }
 
-                        g_name = "< No Guild >";
+                        g_name = "< 没有公会 >";
                     }
                     else
 						g_name = pGuild->GetName();

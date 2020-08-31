@@ -73,7 +73,7 @@ class Theme_NPC : public CreatureScript
                 result = WorldDatabase.PQuery("SELECT `x`, `y`, `z`, `o`, `entry` FROM `gurubashi_spawns` WHERE `theme` = %u", action - OFFSET_THEME);
                 if (result)
                 {
-                    m_creature->MonsterSay("生成 gameobjects..", LANG_UNIVERSAL, player->GetGUID());
+                    m_creature->MonsterSay("生成游戏物品..", LANG_UNIVERSAL, player->GetGUID());
                     do
                     {
                         Field *fields = result->Fetch();
@@ -83,7 +83,7 @@ class Theme_NPC : public CreatureScript
                 }
                 else
                 {
-                    m_creature->MonsterSay("没有发现 gameobjects。", LANG_UNIVERSAL, player->GetGUID());
+                    m_creature->MonsterSay("没有发现游戏物品。", LANG_UNIVERSAL, player->GetGUID());
                 }
                 player->PlayerTalkClass->CloseGossip();
             }

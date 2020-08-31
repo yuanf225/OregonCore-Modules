@@ -70,7 +70,7 @@ public:
             if (!dispInfo)
                 ss << "/InventoryItems/WoWUnknownItem01";
             ss << ":" << width << ":" << height << ":" << x << ":" << y << "|t" << sObjectMgr.GetItemTemplate(sAlphaRewards->itemId[i])->Name1 << "|r";
-            confirm << "Are you sure you want to purchase: " << ss.str().c_str();
+            confirm << "你确定要购买吗? " << ss.str().c_str();
             points << " Points (" << sAlphaRewards->points[i] << ")";
 
             itempoints << ss.str().c_str() << points.str().c_str();
@@ -79,9 +79,9 @@ public:
             player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, itempoints.str().c_str(), page, action, confirm.str().c_str(), sAlphaRewards->points[i], false);
         }
         if (start > 0)
-            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Previous page", page - 1, 0);
+            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "上一页", page - 1, 0);
         if (end < sAlphaRewards->id.size())
-            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Next page", page + 1, 0);
+            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "下一页", page + 1, 0);
 
         player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     }
@@ -94,7 +94,7 @@ public:
 
         if (player->IsInCombat())
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Please Leave combat before speaking to me!");
+            ChatHandler(player->GetSession()).PSendSysMessage("请在和我说话之前离开战斗!");
             return true;
         }
         ShowPage(player, creature, 0);
@@ -142,7 +142,7 @@ public:
             {
                 if (canSay)
                 {
-                    me->MonsterSay("Hey stranger! do you have any gamepoints, speak with me to make a deal!", LANG_UNIVERSAL, NULL);
+                    me->MonsterSay("嗨,陌生人!你有奖励积分吗，跟我谈一笔交易吧!", LANG_UNIVERSAL, NULL);
                     me->HandleEmoteCommand(EMOTE_ONESHOT_EXCLAMATION);
                     say_timer = 61000;
                 }

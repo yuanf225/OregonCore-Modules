@@ -10,14 +10,14 @@ bool GuildHouse::SelectGuildHouse(Guild* guild, Player* player, Creature* creatu
 
     if (result)
     {
-        ChatHandler(player->GetSession()).PSendSysMessage("You cant buy any more guilds houses!");
+        ChatHandler(player->GetSession()).PSendSysMessage("你不能再购买公会领地了!");
         player->CLOSE_GOSSIP_MENU();
         return false;
     }
 
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_MONEY_BAG, "GM Island", GOSSIP_SENDER_MAIN, 100, "Buy GM Island Guildhouse", sWorld.GetModuleIntConfig("GuildHouse.Cost", 10000000), false);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, " ----- More to Come ----", GOSSIP_SENDER_MAIN, 4);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_MONEY_BAG, "GM岛", GOSSIP_SENDER_MAIN, 100, "购买GM岛公会领地", sWorld.GetModuleIntConfig("GuildHouse.Cost", 10000000), false);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, " ----- 未来会更多 ----", GOSSIP_SENDER_MAIN, 4);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     return true;
 }
@@ -29,7 +29,7 @@ bool GuildHouse::SellGuildHouse(Player* player, Guild* guild)
 
     if (!result)
     {
-        ChatHandler(player->GetSession()).PSendSysMessage("You do not have a active Guild house!");
+        ChatHandler(player->GetSession()).PSendSysMessage("您没有一个活跃的公会领地!");
         return false;
     }
 
@@ -41,7 +41,7 @@ bool GuildHouse::SellGuildHouse(Player* player, Guild* guild)
         WorldDatabase.PQuery("DELETE FROM `gameobject` WHERE `map` = 1 and phaseMask = %u", player->GetGuildId());
     }
 
-    ChatHandler(player->GetSession()).PSendSysMessage("You have successfully sold your guild house");
+    ChatHandler(player->GetSession()).PSendSysMessage("你已经成功地卖掉了你的公会领地");
     player->ModifyMoney(+(sWorld.GetModuleIntConfig("GuildHouse.Cost", 10000000) / 2));
     player->CLOSE_GOSSIP_MENU();
     return true;
@@ -62,8 +62,8 @@ bool GuildHouse::BuyGuildHouse(Player* player, Guild* guild, uint32 action)
 
     CharacterDatabase.PQuery("INSERT INTO `guild_house` (guild, phase, map, positionX, positionY, positionZ, zoneId) VALUES (%u, %u, %u, %f, %f, %f, %u)", player->GetGuildId(), player->GetGuildId(), map, posX, posY, posZ, zoneId);
     player->ModifyMoney(-(sWorld.GetModuleIntConfig("GuildHouse.Cost", 10000000)));
-    ChatHandler(player->GetSession()).PSendSysMessage("You have successfully purchased a guild house");
-    guild->BroadcastToGuild(player->GetSession(), "We have now got a guild house", LANG_UNIVERSAL);
+    ChatHandler(player->GetSession()).PSendSysMessage("您已经成功地购买了一个公会领地");
+    guild->BroadcastToGuild(player->GetSession(), "我们现在有了一个公会领地", LANG_UNIVERSAL);
     player->SaveGoldToDB(); // Save players gold just incase crash
     player->CLOSE_GOSSIP_MENU();
     return true;
@@ -74,7 +74,7 @@ void GuildHouse::TeleportToGuildHouse(Guild* guild, Player* player, Creature* cr
 
     if (player->IsInCombat() || player->IsInFlight())
     {
-        ChatHandler(player).PSendSysMessage("Unable to teleport to GuildHouse");
+        ChatHandler(player).PSendSysMessage("无法传送到公会领地");
         return;
     }
 
@@ -82,7 +82,7 @@ void GuildHouse::TeleportToGuildHouse(Guild* guild, Player* player, Creature* cr
 
     if (!result)
     {
-        ChatHandler(player->GetSession()).PSendSysMessage("Your Guild does not own a guild house");
+        ChatHandler(player->GetSession()).PSendSysMessage("你的公会不拥有公会领地");
         return;
     }
 
@@ -102,13 +102,13 @@ void GuildHouse::SpawnNPC(uint32 entry, Player* player, uint32 cost)
     //check we are the right zone before allowing to spawn
     if (player->GetZoneId() != fields[7].GetUInt32())
     {
-        ChatHandler(player).PSendSysMessage("Creatures can only be spawned in your Guildhouse!");
+        ChatHandler(player).PSendSysMessage("只能在你的公会领地创建NPC！");
         return;
     }
 
     if (player->FindNearestCreature(entry, VISIBILITY_RANGE))
     {
-        ChatHandler(player).PSendSysMessage("This creature is already spawned.");
+        ChatHandler(player).PSendSysMessage("该NPC已经存在！");
         return;
     }
 
@@ -155,7 +155,7 @@ void GuildHouse::SpawnObject(uint32 entry, Player* player, uint32 cost)
     //check we are the right zone before allowing to spawn
     if (player->GetZoneId() != fields[7].GetUInt32())
     {
-        ChatHandler(player).PSendSysMessage("Objects can only be spawned in your Guildhouse!");
+        ChatHandler(player).PSendSysMessage("物品只能在你的公会领地创建！");
         return;
     }
 
@@ -168,7 +168,7 @@ void GuildHouse::SpawnObject(uint32 entry, Player* player, uint32 cost)
 
     if (player->FindNearestGameObject(entry, VISIBLE_RANGE) && entry != 24469)
     {
-        ChatHandler(player->GetSession()).PSendSysMessage("You already have this object!");
+        ChatHandler(player->GetSession()).PSendSysMessage("您已经有了这个物品!");
         player->CLOSE_GOSSIP_MENU();
         return;
     }
@@ -233,7 +233,7 @@ void GuildHouse::DeleteCreature(Player* player)
     //check we are the right zone before allowing to spawn
     if (player->GetZoneId() != fields[7].GetUInt32())
     {
-        ChatHandler(player).PSendSysMessage("You can only remove creatures in your Guildhouse!");
+        ChatHandler(player).PSendSysMessage("你只能移除你的公会领地的NPC!");
         return;
     }
 
@@ -249,19 +249,19 @@ bool GuildHouse::ShowGameObjectPortals(Player* player, Item* item)
     player->PlayerTalkClass->ClearMenus();
     if (player->GetTeamId() == TEAM_ALLIANCE)
     {
-        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Stormwind", GOSSIP_SENDER_MAIN, 183325, "Add Stormwind Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500*GOLD), false);
-         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Ironforge", GOSSIP_SENDER_MAIN, 183322, "Add Ironforge Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
-         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Darnassus", GOSSIP_SENDER_MAIN, 183317, "Add Darnassus Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
-         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Exodar", GOSSIP_SENDER_MAIN, 183321, "Add Exodar Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：暴风城", GOSSIP_SENDER_MAIN, 183325, "Add Stormwind Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500*GOLD), false);
+         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：铁炉堡", GOSSIP_SENDER_MAIN, 183322, "Add Ironforge Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：达纳苏斯", GOSSIP_SENDER_MAIN, 183317, "Add Darnassus Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+         player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：埃索达", GOSSIP_SENDER_MAIN, 183321, "Add Exodar Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
     }
     else
     {
-        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Orgrimmar", GOSSIP_SENDER_MAIN, 183323, "Add Orgrimmar Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
-        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Undercity", GOSSIP_SENDER_MAIN, 183327, "Add Undercity Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
-        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Thunderbluff", GOSSIP_SENDER_MAIN, 183326, "Add Thunderbuff Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
-        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "Portal: Silvermoon", GOSSIP_SENDER_MAIN, 183324, "Add Silvermoon Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：奥格瑞玛", GOSSIP_SENDER_MAIN, 183323, "Add Orgrimmar Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：幽暗城", GOSSIP_SENDER_MAIN, 183327, "Add Undercity Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：雷霆崖", GOSSIP_SENDER_MAIN, 183326, "Add Thunderbuff Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
+        player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TAXI, "传送：银月城", GOSSIP_SENDER_MAIN, 183324, "Add Silvermoon Portal?", sWorld.GetModuleIntConfig("GuildHouse.Portal", 500 * GOLD), false);
     }
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu!", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单！", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -269,14 +269,14 @@ bool GuildHouse::ShowGameObjectPortals(Player* player, Item* item)
 bool GuildHouse::ShowGameObjectMenu(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TAXI, "Portals", GOSSIP_SENDER_MAIN, 8);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TAXI, "传送", GOSSIP_SENDER_MAIN, 8);
     player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_MONEY_BAG, "Guild Vault", GOSSIP_SENDER_MAIN, 187334, "Add a Guild Vault?", sWorld.GetModuleIntConfig("GuildHouse.GuildVault", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TALK, "Mailbox", GOSSIP_SENDER_MAIN, 184137, "Add a mailbox?", sWorld.GetModuleIntConfig("GuildHouse.MailBox", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "Chair", GOSSIP_SENDER_MAIN, 24469, "Add a Chair?", sWorld.GetModuleIntConfig("GuildHouse.Chair", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TALK, "邮箱", GOSSIP_SENDER_MAIN, 184137, "Add a mailbox?", sWorld.GetModuleIntConfig("GuildHouse.MailBox", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "椅子", GOSSIP_SENDER_MAIN, 24469, "Add a Chair?", sWorld.GetModuleIntConfig("GuildHouse.Chair", 500 * GOLD), false);
     player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "Anvil", GOSSIP_SENDER_MAIN, 38492, "Add a Anvil?", sWorld.GetModuleIntConfig("GuildHouse.ObjectMisc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "Forge", GOSSIP_SENDER_MAIN, 1685, "Add a Forge?", sWorld.GetModuleIntConfig("GuildHouse.ObjectMisc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "Alchemy Lab", GOSSIP_SENDER_MAIN, 183848, "Add a Alchemy Lab?", sWorld.GetModuleIntConfig("GuildHouse.ObjectMisc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu!", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "锻铁炉", GOSSIP_SENDER_MAIN, 1685, "Add a Forge?", sWorld.GetModuleIntConfig("GuildHouse.ObjectMisc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_INTERACT_1, "炼金试验室", GOSSIP_SENDER_MAIN, 183848, "Add a Alchemy Lab?", sWorld.GetModuleIntConfig("GuildHouse.ObjectMisc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单！", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -284,10 +284,10 @@ bool GuildHouse::ShowGameObjectMenu(Player* player, Item* item)
 bool GuildHouse::ShowCreatureMainMenu(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TRAINER, "Profession Trainers", GOSSIP_SENDER_MAIN, 9);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TRAINER, "Class Trainers", GOSSIP_SENDER_MAIN, 10);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Misc", GOSSIP_SENDER_MAIN, 11);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu!", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TRAINER, "职业训练师", GOSSIP_SENDER_MAIN, 9);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TRAINER, "专业训练师", GOSSIP_SENDER_MAIN, 10);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "其他", GOSSIP_SENDER_MAIN, 11);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单！", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -295,16 +295,16 @@ bool GuildHouse::ShowCreatureMainMenu(Player* player, Item* item)
 bool GuildHouse::ShowClassTrainers(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Druid", GOSSIP_SENDER_MAIN, 26324, "Spawn Druid Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Hunter", GOSSIP_SENDER_MAIN, 26325, "Spawn Hunter Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Mage", GOSSIP_SENDER_MAIN, 26326, "Spawn Mage Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Paladin", GOSSIP_SENDER_MAIN, 26327, "Spawn Paladin Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Priest", GOSSIP_SENDER_MAIN, 26328, "Spawn Priest Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Rogue", GOSSIP_SENDER_MAIN, 26329, "Spawn Rogue Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Shaman", GOSSIP_SENDER_MAIN, 26330, "Spawn Shaman Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Warlock", GOSSIP_SENDER_MAIN, 26331, "Spawn Warlock Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Warrior", GOSSIP_SENDER_MAIN, 26332, "Spawn Warrior Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "德鲁伊", GOSSIP_SENDER_MAIN, 26324, "Spawn Druid Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "猎人", GOSSIP_SENDER_MAIN, 26325, "Spawn Hunter Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "法师", GOSSIP_SENDER_MAIN, 26326, "Spawn Mage Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "圣骑士", GOSSIP_SENDER_MAIN, 26327, "Spawn Paladin Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "牧师", GOSSIP_SENDER_MAIN, 26328, "Spawn Priest Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "盗贼", GOSSIP_SENDER_MAIN, 26329, "Spawn Rogue Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "萨满", GOSSIP_SENDER_MAIN, 26330, "Spawn Shaman Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "术士", GOSSIP_SENDER_MAIN, 26331, "Spawn Warlock Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "战士", GOSSIP_SENDER_MAIN, 26332, "Spawn Warrior Trainer?", sWorld.GetModuleIntConfig("GuildHouse.Trainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -312,10 +312,10 @@ bool GuildHouse::ShowClassTrainers(Player* player, Item* item)
 bool GuildHouse::ShowMainMenu(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_INTERACT_1, "Game Objects", GOSSIP_SENDER_MAIN, 3);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_INTERACT_1, "Creatures", GOSSIP_SENDER_MAIN, 4);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ACTION_BATTLE, "Remove Creature", GOSSIP_SENDER_MAIN, 5);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ACTION_BATTLE, "Remove Object", GOSSIP_SENDER_MAIN, 7);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_INTERACT_1, "游戏物品", GOSSIP_SENDER_MAIN, 3);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_INTERACT_1, "NPC", GOSSIP_SENDER_MAIN, 4);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ACTION_BATTLE, "移除NOC", GOSSIP_SENDER_MAIN, 5);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ACTION_BATTLE, "移除物品", GOSSIP_SENDER_MAIN, 7);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -323,20 +323,20 @@ bool GuildHouse::ShowMainMenu(Player* player, Item* item)
 bool GuildHouse::ShowProfessionTrainer(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Herbalism Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18776 : 18748, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Mining Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18779 : 18747, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Tailoring Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18772 : 16583, "Spawn Skinning Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Blacksmithing Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 16823 : 16583, "Spawn Blacksmithing Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Alchemy Trainer", GOSSIP_SENDER_MAIN, 19052, "Spawn Alchemy Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Enchanting Trainer", GOSSIP_SENDER_MAIN, 19540, "Spawn Enchanting Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Jewelcrafting Trainer", GOSSIP_SENDER_MAIN, 19539, "Spawn Jewelcrafting Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Leatherworking Trainer", GOSSIP_SENDER_MAIN, 19187, "Spawn Leatherworking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Skinning Trainer", GOSSIP_SENDER_MAIN, 19180, "Spawn Skinning Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Engineering Trainer", GOSSIP_SENDER_MAIN, 24868, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Cooking Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 4210 : 4552, "Spawn Cooking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Fist Aid Trainer", GOSSIP_SENDER_MAIN, 22477, "Spawn First Aid Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "Fishing Trainer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 3607 : 3332, "Spawn Cooking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "草药训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18776 : 18748, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "采矿训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18779 : 18747, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "裁缝训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 18772 : 16583, "Spawn Skinning Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "锻造训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 16823 : 16583, "Spawn Blacksmithing Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "炼金训练师", GOSSIP_SENDER_MAIN, 19052, "Spawn Alchemy Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "附魔训练师", GOSSIP_SENDER_MAIN, 19540, "Spawn Enchanting Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "珠宝加工训练师", GOSSIP_SENDER_MAIN, 19539, "Spawn Jewelcrafting Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "皮革加工训练师", GOSSIP_SENDER_MAIN, 19187, "Spawn Leatherworking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "剥皮训练师", GOSSIP_SENDER_MAIN, 19180, "Spawn Skinning Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "工程训练师", GOSSIP_SENDER_MAIN, 24868, "Spawn Engineering Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "烹饪训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 4210 : 4552, "Spawn Cooking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "急救训练师", GOSSIP_SENDER_MAIN, 22477, "Spawn First Aid Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TRAINER, "钓鱼训练师", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 3607 : 3332, "Spawn Cooking Trainer?", sWorld.GetModuleIntConfig("GuildHouse.ProfTrainer", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
 
     return true;
@@ -346,17 +346,17 @@ bool GuildHouse::ShowMiscMenu(Player* player, Item* item)
 {
     player->PlayerTalkClass->ClearMenus();
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Innkeeper", GOSSIP_SENDER_MAIN, 18907, "Spawn InnKeeper?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_MONEY_BAG, "Banker", GOSSIP_SENDER_MAIN, 21733, "Spawn Banker?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TALK, "Auctioneer", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 8670 : 15686, "Spawn Auctioneer?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Trade Supplies", GOSSIP_SENDER_MAIN, 19573, "Spawn Trade Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Alchemy Supplies", GOSSIP_SENDER_MAIN, 11188, "Spawn Alchemy Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Tailoring Supplies", GOSSIP_SENDER_MAIN, 19213, "Spawn Tailoring Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Engineering Supplies", GOSSIP_SENDER_MAIN, 19575, "Spawn Engineering Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Enchanting Supplies", GOSSIP_SENDER_MAIN, 19537, "Spawn Enchanting Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Cooking Supplies", GOSSIP_SENDER_MAIN, 19195, "Spawn Cooking Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "Fishing Supplies", GOSSIP_SENDER_MAIN, 18911, "Spawn Fishing Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "旅馆老板", GOSSIP_SENDER_MAIN, 18907, "Spawn InnKeeper?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_MONEY_BAG, "银行家", GOSSIP_SENDER_MAIN, 21733, "Spawn Banker?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TALK, "拍卖商", GOSSIP_SENDER_MAIN, player->GetTeamId() == TEAM_ALLIANCE ? 8670 : 15686, "Spawn Auctioneer?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "商人", GOSSIP_SENDER_MAIN, 19573, "Spawn Trade Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "炼金物品", GOSSIP_SENDER_MAIN, 11188, "Spawn Alchemy Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "裁缝物品", GOSSIP_SENDER_MAIN, 19213, "Spawn Tailoring Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "工程物品", GOSSIP_SENDER_MAIN, 19575, "Spawn Engineering Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "附魔物品", GOSSIP_SENDER_MAIN, 19537, "Spawn Enchanting Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "烹饪物品", GOSSIP_SENDER_MAIN, 19195, "Spawn Cooking Supplies?", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_VENDOR, "钓鱼物品", GOSSIP_SENDER_MAIN, 18911, "确定创建钓鱼物品吗？", sWorld.GetModuleIntConfig("GuildHouse.Misc", 500 * GOLD), false);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }
@@ -397,8 +397,8 @@ bool GuildHouse::OnListNearObjects(Player* player, Item* item)
 
     ChatHandler(player).PSendSysMessage(LANG_COMMAND_NEAROBJMESSAGE, distance, count);
     player->PlayerTalkClass->ClearMenus();
-    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Remove GameObjet.", GOSSIP_SENDER_MAIN, 7, "Please enter the GUID", 0, true);
-    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Main Menu", GOSSIP_SENDER_MAIN, 60000);
+    player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "移除游戏物品", GOSSIP_SENDER_MAIN, 7, "请输入GUID", 0, true);
+    player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "主菜单", GOSSIP_SENDER_MAIN, 60000);
     player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
     return true;
 }

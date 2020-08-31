@@ -31,7 +31,7 @@ public:
     {
         if (!sWorld.GetModuleBoolConfig("Alpha.Rewards.Enable", true))
         {
-            handler->PSendSysMessage("Reward Module is currently disabled.");
+            handler->PSendSysMessage("奖励模块目前是禁用的。");
             return false;
         }
 
@@ -42,7 +42,7 @@ public:
 
         if (target && IsGM) // lets get selected player
         {
-            handler->PSendSysMessage("Player: %s Currently has %u GamePoints", target->GetName(), target->CustomData.GetDefault< AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
+            handler->PSendSysMessage("玩家: %s 目前有 %u 奖励积分", target->GetName(), target->CustomData.GetDefault< AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
         }
         else if (*args && IsGM && !target) // if no target selected but if arguments
         {
@@ -51,7 +51,7 @@ public:
 
             if (CheckPlayer)
             {
-                handler->PSendSysMessage("Player: %s currently has %u Gamepoints", CheckPlayer->GetName(), CheckPlayer->CustomData.GetDefault<AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
+                handler->PSendSysMessage("玩家: %s 目前有 %u 奖励积分", CheckPlayer->GetName(), CheckPlayer->CustomData.GetDefault<AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
             }
             else
             {
@@ -69,7 +69,7 @@ public:
 
                     if (result)
                     {
-                        handler->PSendSysMessage("Player %s currently has %u gamepoints", str.c_str(), fields[0].GetUInt32());
+                        handler->PSendSysMessage("玩家 %s 目前有 %u 奖励积分", str.c_str(), fields[0].GetUInt32());
 
                     }
                 }
@@ -77,7 +77,7 @@ public:
             }
         }
         else // No target or arguments get own
-            handler->PSendSysMessage("You have currently got %u gamepoints", player->CustomData.GetDefault<AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
+            handler->PSendSysMessage("你现在有 %u 奖励积分", player->CustomData.GetDefault<AlphaRewardData>("RewardPointsMap")->RewardPointsMap);
 
         return true;
     }
@@ -86,7 +86,7 @@ public:
     {
         if (!sWorld.GetModuleBoolConfig("Alpha.Rewards.Enable", true))
         {
-            handler->PSendSysMessage("Reward Module is currently disabled.");
+            handler->PSendSysMessage("奖励模块目前是禁用的。");
             return false;
         }
 
@@ -110,7 +110,7 @@ public:
             {
                 uint32& _points = player->CustomData.GetDefault<AlphaRewardData>("RewardPointsMap")->RewardPointsMap;
                 _points += amount;
-                handler->PSendSysMessage("You have given account %s %u Gamepoints", accountName, amount);
+                handler->PSendSysMessage("你给了帐号 %s %u 奖励积分", accountName, amount);
             }
             else
                 // If player is in session but not logged into world update the DB table

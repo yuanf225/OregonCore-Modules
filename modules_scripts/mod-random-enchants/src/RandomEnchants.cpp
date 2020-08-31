@@ -13,7 +13,7 @@ public:
 
     void OnLogin(Player* player, bool /*First login*/) override {
         if (sWorld.GetModuleBoolConfig("RandomEnchants.AnnounceOnLogin", true))
-            ChatHandler(player).PSendSysMessage(sWorld.GetModuleStringConfig("RandomEnchants.OnLoginMessage", "此服务器正在运行RandomEnchants模块").c_str());
+            ChatHandler(player).PSendSysMessage(sWorld.GetModuleStringConfig("RandomEnchants.OnLoginMessage", "此服务器正在运行随机附魔模块").c_str());
     }
 	void OnLootItem(Player* player, Item* item, uint32 /*count*/, uint64 /*lootguid*/) override
 	{

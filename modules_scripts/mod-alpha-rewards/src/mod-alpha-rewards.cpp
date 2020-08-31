@@ -48,7 +48,7 @@ void AlphaRewards::LoadAlphaRewardsTable()
     if (!sWorld.GetModuleBoolConfig("Alpha.Rewards.Enable", true))
         return;
 
-    sLog.outString("Loading Alpha Reward System...");
+    sLog.outString("加载阿尔法奖励系统…");
 
     QueryResult_AutoPtr result = WorldDatabase.PQuery("SELECT `Entry`, `TypeId`, `Points` FROM `alpha_reward_system`");
 
@@ -89,7 +89,7 @@ void AlphaRewards::LoadAlphaRewardItemTable()
     if (!sWorld.GetModuleBoolConfig("Alpha.Rewards.Enable", true))
         return;
 
-    sLog.outString("Loading Alpha Rewards Item Table...");
+    sLog.outString("加载阿尔法奖励物品表…");
 
     QueryResult_AutoPtr result = WorldDatabase.PQuery("SELECT `id`, `itemId`, `points`, `quantity` FROM `alpha_reward_system_items`");
 
@@ -129,7 +129,7 @@ void AlphaRewards::AddItemAndCheck(Player* player, uint32 item, uint32 quantity,
 
      if (_points < points)
      {
-         ChatHandler(player->GetSession()).PSendSysMessage("You do not have enough points");
+         ChatHandler(player->GetSession()).PSendSysMessage("你的奖励积分不够");
          return;
      }
 
@@ -170,7 +170,7 @@ void AlphaRewards::UpdateDBGamePoint(ChatHandler* handler, char const* account, 
 
     if (!result)
     {
-        handler->PSendSysMessage("The account name '%s' does not exist", account);
+        handler->PSendSysMessage("账户名称 '%s' 不存在！", account);
         return;
     }
 
@@ -178,5 +178,5 @@ void AlphaRewards::UpdateDBGamePoint(ChatHandler* handler, char const* account, 
     uint32 AccountId = fields[0].GetInt32();
 
     LoginDatabase.DirectPExecute("UPDATE `account` SET `game_point` =  `game_point` + '%u' WHERE `id` = '%u'", point, AccountId);
-    handler->PSendSysMessage("You have given account %s %u Gamepoints", account, point);
+    handler->PSendSysMessage("你给了帐号 %s %u 奖励积分", account, point);
 }

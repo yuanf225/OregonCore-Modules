@@ -20,15 +20,15 @@ public:
 
         if (guild->GetLeader() == player->GetGUID())
         {
-            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TABARD, "Buy Guild House!", GOSSIP_SENDER_MAIN, 1);
-            player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TABARD, "Sell Guild House!", GOSSIP_SENDER_MAIN, 2, "Are you sure you want to sell your Guild house?", NULL, false);
+            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TABARD, "购买公会领地！", GOSSIP_SENDER_MAIN, 1);
+            player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_TABARD, "卖掉公会领地！", GOSSIP_SENDER_MAIN, 2, "你确定要卖掉你的公会领地吗?", NULL, false);
             if (!player->HasItemCount(9017, 1, true))
             {
                 player->AddItem(9017, 1);
             }
 
         }
-        player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TABARD, "Teleport to Guild House", GOSSIP_SENDER_MAIN, 3);
+        player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TABARD, "传送到公会领地", GOSSIP_SENDER_MAIN, 3);
         player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
         return true;
     }

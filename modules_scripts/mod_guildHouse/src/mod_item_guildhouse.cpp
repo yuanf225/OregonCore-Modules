@@ -25,7 +25,7 @@ public:
 
         if (guild->GetLeader() == player->GetGUID())
         {
-            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, " ----- Management ----", GOSSIP_SENDER_MAIN, 2);
+            player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, " ----- 管理者 ----", GOSSIP_SENDER_MAIN, 2);
         }
         player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, item->GetGUID());
         return false;
@@ -165,7 +165,7 @@ public:
         //check we are the right zone before allowing to spawn
         if (player->GetZoneId() != fields[7].GetUInt32())
         {
-            ChatHandler(player).PSendSysMessage("You can only remove Objects in your Guildhouse!");
+            ChatHandler(player).PSendSysMessage("你只能移除你的公会中的物品!");
             return;
         }
 
