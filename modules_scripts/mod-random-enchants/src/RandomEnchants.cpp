@@ -67,11 +67,11 @@ public:
 		}
 		ChatHandler chathandle = ChatHandler(player->GetSession());
 		if (slotRand[2] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |rhas received|cffFF0000 3 |随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 		else if(slotRand[1] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |rhas received|cffFF0000 2 |随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 		else if(slotRand[0] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |rhas received|cffFF0000 1 |随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 	}
 	int getRandEnchantment(Item* item)
 	{
