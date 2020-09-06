@@ -1,2 +1,0 @@
-AC_ADD_SCRIPT("${CMAKE_CURRENT_LIST_DIR}/src/summon.cpp")
-AC_ADD_SCRIPT_LOADER("Summon" "${CMAKE_CURRENT_LIST_DIR}/src/loader.h")

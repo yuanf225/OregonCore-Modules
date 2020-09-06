@@ -1,2 +1,0 @@
-AC_ADD_SCRIPT("${CMAKE_CURRENT_LIST_DIR}/src/TemplateNPC.cpp")
-AC_ADD_SCRIPT_LOADER("TemplateNPC" "${CMAKE_CURRENT_LIST_DIR}/src/loader.h")
