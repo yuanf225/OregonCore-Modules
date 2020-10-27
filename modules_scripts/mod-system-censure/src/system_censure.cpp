@@ -14,7 +14,7 @@ public:
 
     void OnLogin(Player* p, bool firstLogin)
     {
-        ChatHandler(p->GetSession()).PSendSysMessage("该服务器正在运行 |cff4CFF00反广告系统 模块。");
+        ChatHandler(p->GetSession()).PSendSysMessage("服务器已开启|cff4CFF00反广告系统|模块。");
     }
 
     void OnChat(Player* player, uint32 /*type*/, uint32 lang, std::string& msg)

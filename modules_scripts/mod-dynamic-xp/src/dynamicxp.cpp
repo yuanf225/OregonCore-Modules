@@ -21,7 +21,7 @@ class spp_dynamic_xp_rate : public PlayerScript
        {
             if (sWorld.GetModuleBoolConfig("Dynamic.XP.Rate.Announce", true))
                {
-               ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Level Dynamic XP |rmodule by |cff4CFF00Milestorme.");
+               ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00动态经验|模块。");
                }
        }
         void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override

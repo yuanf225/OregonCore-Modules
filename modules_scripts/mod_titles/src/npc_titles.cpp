@@ -32,19 +32,19 @@ bool OnGossipHello(Player* pPlayer, Creature* pCreature)
 
 void SendDefaultMenu(Player* pPlayer, Creature* pCreature, uint32 uiAction)
 {
-    // Not allowed if in combat.
+    // 在战斗中不允许。
     if (pPlayer->IsInCombat())
     {
       pPlayer->CLOSE_GOSSIP_MENU();
-      pCreature->MonsterSay("You are in combat!", LANG_UNIVERSAL, NULL);
+      pCreature->MonsterSay("你在战斗中!", LANG_UNIVERSAL, NULL);
       return;
     }
 
-    // Process menu selection
+    // 程序菜单选择
     switch(uiAction)
     { 
         case 1000:
-            // Gladiator's Title
+            // 角斗士的称号
             if(pPlayer->GetMoney() >= (sWorld.GetModuleIntConfig("Npc_Titles.Cost", 10) * 10000) && (pPlayer->GetMaxPersonalArenaRatingRequirement() >= sWorld.GetModuleIntConfig("Npc_Titles.Glad.Rating", 0) 
                 && pPlayer->HasItemCount(sWorld.GetModuleIntConfig("Npc_Titles.Glad.ItemID", 0), sWorld.GetModuleIntConfig("Npc_Titles.Glad.ItemCount", 0), true) 
                 && pPlayer->GetHonorPoints() >= sWorld.GetModuleIntConfig("Npc_Titles.Glad.Honor", 0) 
@@ -59,12 +59,12 @@ void SendDefaultMenu(Player* pPlayer, Creature* pCreature, uint32 uiAction)
                 pPlayer->ModifyHonorPoints((-1)*sWorld.GetModuleIntConfig("Npc_Titles.Glad.Honor", 0));
                 pPlayer->ModifyArenaPoints((-1)*sWorld.GetModuleIntConfig("Npc_Titles.Glad.Ap", 0));
                 pPlayer->SetTitle(title);
-                pCreature->MonsterWhisper("Here are your Gladuator's Title. Relogin please.", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("您获得了新的称号，请重新登录。", pPlayer->GetGUID());
             }
             else
             {
                 pPlayer->CLOSE_GOSSIP_MENU();
-                pCreature->MonsterWhisper("You can not do it!", pPlayer->GetGUID());
+                pCreature->MonsterWhisper("你做不到!", pPlayer->GetGUID());
             }
             break;
         case 2000:
@@ -120,7 +120,7 @@ void SendDefaultMenu(Player* pPlayer, Creature* pCreature, uint32 uiAction)
 
 bool OnGossipSelect(Player* pPlayer, Creature* pCreature, uint32 uiSender, uint32 uiAction)
 {
-    // Show menu
+    // 显示菜单
     if (uiSender == GOSSIP_SENDER_MAIN)
         SendDefaultMenu(pPlayer, pCreature, uiAction);
     return true;
@@ -138,7 +138,7 @@ public:
         // Announce Module
         if (sWorld.GetModuleBoolConfig("Npc_Titles.Enable", true) && sWorld.GetModuleBoolConfig("Npc_Titles.Announce", true))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00npc_titles |rmodule by |cff4CFF00LordPsyan");
+            ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00称号大师|模块。");
         }
     }
 };

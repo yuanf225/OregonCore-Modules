@@ -12,19 +12,19 @@
 #include "DatabaseEnv.h"
 #include "DBCStores.h"
 
-#define MSG_GOSSIP_TELE          "Teleport to GuildHouse"
-#define MSG_GOSSIP_BUY           "Buy GuildHouse"
-#define MSG_GOSSIP_SELL          "Sell GuildHouse"
-#define MSG_GOSSIP_NEXTPAGE      "Next -->"
-#define MSG_INCOMBAT             "You are in combat and cannot be teleported to your GuildHouse."
-#define MSG_NOGUILDHOUSE         "Your guild currently does not own a GuildHouse."
-#define MSG_NOFREEGH             "Unfortunately, all GuildHouses are in use."
-#define MSG_ALREADYHAVEGH        "Sorry, but you already own a GuildHouse (%s)."
-#define MSG_NOTENOUGHMONEY       "You do not have the %u gold required to purchase a GuildHouse."
-#define MSG_GHOCCUPIED           "This GuildHouse is unavailable for purchase as it is currently in use."
-#define MSG_SOLD                 "You have sold your GuildHouse and have received %u gold."
-#define MSG_NOTINGUILD           "You need to be in a guild before you can use a GuildHouse."
-#define MSG_SELL_CONFIRM         "Are you sure you want to sell your guildhouse for half the buy price?"
+#define MSG_GOSSIP_TELE          "传送到公会领地"
+#define MSG_GOSSIP_BUY           "购买公会领地"
+#define MSG_GOSSIP_SELL          "出售公会领地"
+#define MSG_GOSSIP_NEXTPAGE      "下一步 -->"
+#define MSG_INCOMBAT             "你在战斗中，不能被传送到你的公会领地。"
+#define MSG_NOGUILDHOUSE         "你的公会目前没有公会领地。"
+#define MSG_NOFREEGH             "不幸的是，当前没有闲置的公会领地。"
+#define MSG_ALREADYHAVEGH        "对不起，你已经拥有了一个公会领地(%s)。"
+#define MSG_NOTENOUGHMONEY       "你没有%u金币来购买一个公会领地。"
+#define MSG_GHOCCUPIED           "目前正在使用中，无法购买此公会领地。"
+#define MSG_SOLD                 "你已经卖掉了你的公会领地，并且获得了%u的金币。"
+#define MSG_NOTINGUILD           "你需要先进入公会才能使用公会领地。"
+#define MSG_SELL_CONFIRM         "你确定要以半价卖掉你的公会领地吗？"
 
 #define OFFSET_GH_ID_TO_ACTION 1500
 #define OFFSET_SHOWBUY_FROM 10000
@@ -90,7 +90,7 @@ void teleportPlayerToGuildHouse(Player *player, Creature *_creature)
  if (player->IsInCombat())
  {
  //if player in combat
-  _creature->MonsterSay("You are in combat and cannot be teleported to your GuildHouse.", LANG_UNIVERSAL, NULL);
+  _creature->MonsterSay("你在战斗中，不能被传送到你的公会领地。", LANG_UNIVERSAL, NULL);
  return;
  }
 
@@ -127,7 +127,7 @@ bool showBuyList(Player *player, Creature *_creature, uint32 showFromId = 0)
  //send comment as a gossip item
  //transmit guildhouseId in Action variable
  //player->ADD_GOSSIP_ITEM(ICON_GOSSIP_TABARD, comment, GOSSIP_SENDER_MAIN, guildhouseId + OFFSET_GH_ID_TO_ACTION);
- player->ADD_GOSSIP_ITEM_EXTENDED(ICON_GOSSIP_TABARD, comment, GOSSIP_SENDER_MAIN, guildhouseId + OFFSET_GH_ID_TO_ACTION, "Are you sure you want to purchase this Guild house?", 0, false);
+ player->ADD_GOSSIP_ITEM_EXTENDED(ICON_GOSSIP_TABARD, comment, GOSSIP_SENDER_MAIN, guildhouseId + OFFSET_GH_ID_TO_ACTION, "你确定要购买这个公会领地吗?", 0, false);
  }
  while (result->NextRow());
 
@@ -144,7 +144,7 @@ bool showBuyList(Player *player, Creature *_creature, uint32 showFromId = 0)
  }
  else if (!result)
  {
- //all guildhouses are occupied
+ //所有的公会领地都被占领了
  _creature->Whisper(MSG_NOFREEGH, LANG_UNIVERSAL, player);
  player->CLOSE_GOSSIP_MENU();
  player->CLOSE_GOSSIP_MENU();
@@ -199,13 +199,13 @@ void buyGuildhouse(Player *player, Creature *_creature, uint32 guildhouseId)
 
  if (isPlayerHasGuildhouse(player, _creature, true))
  {
- //player already have GH
+ //玩家已经拥有GH
  return;
  }
 
  QueryResult* result;
 
- //check if somebody already occupied this GH
+ //检查一下是否有人已经占用了这个GH
  result = WorldDatabase.PQuery("SELECT `id` FROM `guildhouses` WHERE `id` = %u AND `guildId` <> 0", guildhouseId);
 
  if (result)
@@ -214,7 +214,7 @@ void buyGuildhouse(Player *player, Creature *_creature, uint32 guildhouseId)
  return;
  }
 
- //update DB
+ //更新数据库
  result = WorldDatabase.PQuery("UPDATE `guildhouses` SET `guildId` = %u WHERE `id` = %u",
  player->GetGuildId(), guildhouseId);
  uint32 myMoney = sWorld.GetModuleIntConfig("GuildHouse.BuyCost", 1000);
@@ -222,7 +222,7 @@ void buyGuildhouse(Player *player, Creature *_creature, uint32 guildhouseId)
  player->ModifyMoney(-myMoney * 10000);
 
  //player->DestroyItemCount(token, cost, true);
- _creature->MonsterSay("Congratulations! You have successfully purchased a GuildHouse.", LANG_UNIVERSAL, NULL);
+ _creature->MonsterSay("恭喜你!你已经成功地购买了一个公会领地。", LANG_UNIVERSAL, NULL);
 
 }
 
@@ -319,7 +319,7 @@ public:
         // Announce Module
         if (sWorld.GetModuleBoolConfig("GuildHouse.Enable", true) && sWorld.GetModuleBoolConfig("GuildHouse.Announce", true))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00guildmaster |rmodule by |cff4CFF00LordPsyan");
+            ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00公会领地|模块。");
         }
     }
 };

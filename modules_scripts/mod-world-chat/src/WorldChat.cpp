@@ -45,7 +45,7 @@ std::string world_chat_ClassColor[11] =
     "|cffFF7D0A", // DRUID
 };
 
-/* Ranks */
+/* 用户等级 */
 std::string world_chat_GM_RANKS[4] =
 {
     "Player",
@@ -168,7 +168,7 @@ public:
         Player* player = pChat->GetSession()->GetPlayer();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player).PSendSysMessage("[世界] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -178,7 +178,7 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天被禁用。 (.chat)|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天被禁用。 (.chat)|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -221,7 +221,7 @@ public:
         Player* player = pChat->GetSession()->GetPlayer();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player).PSendSysMessage("[世界] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -231,7 +231,7 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天被禁用。(.chat)|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天被禁用。(.chat)|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
@@ -274,18 +274,18 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         if (WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天已经可见。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天已经可见。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         WorldChat[guid].chat = 1;
 
-        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天现在是可见的。|r", WORLD_CHAT_GREEN.c_str());
+        ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天现在是可见的。|r", WORLD_CHAT_GREEN.c_str());
 
         return true;
     };
@@ -296,18 +296,18 @@ public:
         uint64 guid = player->GetGUID();
 
         if (!sWorld.GetModuleBoolConfig("World_Chat.Enable", true)) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天系统被禁用。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         if (!WorldChat[guid].chat) {
-            ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天已经隐藏。|r", WORLD_CHAT_RED.c_str());
+            ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天已经隐藏。|r", WORLD_CHAT_RED.c_str());
             return true;
         }
 
         WorldChat[guid].chat = 0;
 
-        ChatHandler(player->GetSession()).PSendSysMessage("[WC] %s世界聊天现在是隐藏的。|r", WORLD_CHAT_GREEN.c_str());
+        ChatHandler(player->GetSession()).PSendSysMessage("[世界] %s世界聊天现在是隐藏的。|r", WORLD_CHAT_GREEN.c_str());
 
         return true;
     };
@@ -345,7 +345,7 @@ public:
         // Announce Module
         if (sWorld.GetModuleBoolConfig("World_Chat.Enable", true) && sWorld.GetModuleBoolConfig("World_Chat.Announce", true))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行|cff4CFF00世界聊天|模块");
+            ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00世界聊天|模块");
         }
     }
 };

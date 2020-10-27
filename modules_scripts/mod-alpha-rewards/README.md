@@ -29,8 +29,8 @@ My new module requires:
 ## Installation
 
 ```
-1) Simply place the module under the `modules` directory of your OregonCore source. 
-2) Import the SQL manually to the right Database (auth, world or characters) 
+1) 只需将模块放在OregonCore源代码的“modules”目录下。
+2) 将SQL手动导入到正确的数据库 (auth, world or characters) 
 3) Re-run cmake and launch a clean build.
 ```
 

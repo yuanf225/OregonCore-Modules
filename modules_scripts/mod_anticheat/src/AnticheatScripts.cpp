@@ -23,7 +23,7 @@ public:
 	{
 		sAnticheatMgr->HandlePlayerLogin(player);
 		if(sWorld.GetModuleBoolConfig("Anticheat.LoginMessage", true))
-			ChatHandler(player->GetSession()).PSendSysMessage("此服务器正在运行|cff4CFF00防作弊|模块。");
+			ChatHandler(player->GetSession()).PSendSysMessage("服务器已开启|cff4CFF00防作弊|模块。");
 	}
 };
 

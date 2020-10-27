@@ -19,9 +19,9 @@ CREATE TABLE `guildhouses` (
 -- Records
 -- ----------------------------
 INSERT INTO `guildhouses` VALUES
-('1', '0', '16222', '16266', '14.2', '1', 'GM Island'),
+('1', '0', '16222', '16266', '14.2', '1', 'GM岛'),
 ('2', '0', '-10711', '2483', '8', '1', 'Tauren village at Veiled Sea (Silithus)'),
-('3', '0', '-8323', '-343', '146', '0', 'Fishing outside an Northshire Abbey (Elwynn Forest'),
+('3', '0', '-8323', '-343', '146', '0', 'Fishing outside an Northshire Abbey (Elwynn Forest)'),
 ('4', '0', '7368', '-1560', '163', '1', 'Troll Village in mountains (Darkshore)'),
 ('5', '0', '-4151', '-1400', '198', '0', 'Dwarven village outside Ironforge (Wetlands)'),
 ('6', '0', '-1840', '-4233', '2.14', '0', 'Dwarven village (Arathi Highlands, Forbidding Sea)'),
@@ -61,7 +61,7 @@ INSERT INTO `guildhouses` VALUES
 -- * NPC Guildhouse Keeper *
 -- *************************
 
-DELETE FROM creature_template WHERE `entry`=100071;
+DELETE FROM creature_template WHERE `entry`=190004;
 
 insert into `creature_template` (`entry`, `heroic_entry`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `minhealth`, `maxhealth`, `minmana`, `maxmana`, `armor`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `class`, `race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `PetSpellDataId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `DamageModifier`, `RacialLeader`, `RegenHealth`, `equipment_id`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`) values
-('100071','0','0','0','11804','0','11804','0','Gary','GuildMaster',NULL,'0','70','70','0','5999','5999','1999','1999','2999','35','1','1','1.14286','1','0','0','1500','1500','1','1','0','0','0','0','0','0','0','0','7','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','1','1','1','1','1','1','0','1','0','0','0','guildmaster');
+('190004','0','0','0','11804','0','11804','0','盖瑞','公会首领',NULL,'0','70','70','0','5999','5999','1999','1999','2999','35','1','1','1.14286','1','0','0','1500','1500','1','1','0','0','0','0','0','0','0','0','7','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','','1','1','1','1','1','1','0','1','0','0','0','guildmaster');

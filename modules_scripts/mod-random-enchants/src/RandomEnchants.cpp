@@ -13,7 +13,7 @@ public:
 
     void OnLogin(Player* player, bool /*First login*/) override {
         if (sWorld.GetModuleBoolConfig("RandomEnchants.AnnounceOnLogin", true))
-            ChatHandler(player).PSendSysMessage(sWorld.GetModuleStringConfig("RandomEnchants.OnLoginMessage", "此服务器正在运行随机附魔模块").c_str());
+            ChatHandler(player).PSendSysMessage(sWorld.GetModuleStringConfig("RandomEnchants.OnLoginMessage", "服务器已开启|cff4CFF00随机附魔|模块。").c_str());
     }
 	void OnLootItem(Player* player, Item* item, uint32 /*count*/, uint64 /*lootguid*/) override
 	{
@@ -67,11 +67,11 @@ public:
 		}
 		ChatHandler chathandle = ChatHandler(player->GetSession());
 		if (slotRand[2] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔效果！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 		else if(slotRand[1] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔效果！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 		else if(slotRand[0] != -1)
-			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
+			chathandle.PSendSysMessage("新获得 |cffFF0000 %s |具有|cffFF0000随机附魔效果！", sObjectMgr.GetItemTemplate(item->GetEntry())->Name1);
 	}
 	int getRandEnchantment(Item* item)
 	{

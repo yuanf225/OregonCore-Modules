@@ -23,7 +23,7 @@ public:
     {
         if (sWorld.GetModuleBoolConfig("PhasedDuels.Enable", true))
         {
-            ChatHandler(pPlayer->GetSession()).SendSysMessage("此服务器正在运行|cff4CFF00相位决斗|模块。");
+            ChatHandler(pPlayer->GetSession()).SendSysMessage("服务器已开启|cff4CFF00相位决斗|模块。");
         }
     }
 

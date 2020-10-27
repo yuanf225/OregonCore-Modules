@@ -37,7 +37,7 @@ public:
         {
             if (sWorld.GetModuleBoolConfig("Solocraft.Announce", 1))
             {
-                ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SoloCraft |rmodule.");
+                ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00SoloCraft|模块。");
             }
         }
     }

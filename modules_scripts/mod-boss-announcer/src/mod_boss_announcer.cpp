@@ -22,7 +22,7 @@ public:
         {
             if (BossAnnounceToPlayerOnLogin)
             {
-                ChatHandler(player->GetSession()).SendSysMessage("该服务器正在运行|cff4CFF00Boss公告|模块。");
+                ChatHandler(player->GetSession()).SendSysMessage("服务器已开启|cff4CFF00Boss公告|模块。");
             }
         }
     }
