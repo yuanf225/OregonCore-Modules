@@ -28,7 +28,7 @@ public:
 	void OnLogin(Player *player, bool firstLogin) override {
 		if (sWorld.GetModuleBoolConfig("Solocraft.Announce", true))
 		{
-		ChatHandler(player->GetSession()).SendSysMessage("Solocraft mode activated in dungeons and raids");
+		ChatHandler(player->GetSession()).SendSysMessage("在副本中激活Solocraft模式");
 		}
 	}
 	
@@ -130,7 +130,7 @@ private:
 				player->CastSpell(player, PRAYER_OF_SPRITE, true);
 				player->CastSpell(player, ARCANE_BUFF, true);
 				player->CastSpell(player, SHADOW_BUFF, true);
-				ChatHandler(player->GetSession()).PSendSysMessage("|cffB400B4You have been buffed, enjoy!");		
+				ChatHandler(player->GetSession()).PSendSysMessage("|cffB400B4你的副本增益buff已添加!");		
 			}
 			
 			
@@ -168,7 +168,7 @@ private:
 				player->RemoveAurasDueToSpell(PRAYER_OF_SPRITE);
 				player->RemoveAurasDueToSpell(ARCANE_BUFF);
 				player->RemoveAurasDueToSpell(SHADOW_BUFF);
-				ChatHandler(player->GetSession()).PSendSysMessage("|cffB400B4Your dungeon buffs removed!");		
+				ChatHandler(player->GetSession()).PSendSysMessage("|cffB400B4你的副本增益buff被移除!");		
 			}
 			
 			//player->ApplySpellPowerBonus((player->getLevel())*difficulty*diff_power_multiplier, false);
