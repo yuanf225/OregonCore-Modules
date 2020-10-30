@@ -167,10 +167,6 @@ public:
 
         std::string text = textExtracted;
 
-
-        //让我们检查一下数据库，看看是否有重复的条目
-       QueryResult* result = CharacterDatabase.PQuery("SELECT `text` FROM `chat_censure` WHERE `text` = '%s'", text.c_str());
-
         //lets check the Database to see if arguement already exist
         QueryResult* result = CharacterDatabase.PQuery("SELECT `text` FROM `chat_censure` WHERE `text` = '%s'", text.c_str());
 
